@@ -82,3 +82,7 @@ footer .wrap{display:grid;gap:10px}footer b{font-family:var(--serif);font-weight
 .stat strong{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.6vw,56px);line-height:1;color:var(--gold-hi);margin-bottom:10px}
 .stat b{display:block;font-size:16px}.stat span{color:var(--muted);font-size:14px}
 @media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-inline-start:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+.logo img{width:40px;height:40px;border-radius:50%;display:block}
+.medal{display:block;width:132px;height:132px;border-radius:50%;margin:0 0 22px;filter:drop-shadow(0 16px 34px rgba(201,164,92,.35))}
+.medal.big{width:160px;height:160px;margin:0 auto 18px}
+@media (max-width:900px){.medal{width:104px;height:104px}}
