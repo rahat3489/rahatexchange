@@ -25,7 +25,7 @@
   function f(s, o) { return s.replace(/\{(\w)\}/g, function (_, k) { return o[k]; }); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function coins() {
-    var set = {}; ads.forEach(function (a) { set[a.coin] = 1; });
+    var set = {}; ads.forEach(function (a) { if (a.online) set[a.coin] = 1; });
     return Object.keys(set).sort(function (a, b) { var i = ORDER.indexOf(a), j = ORDER.indexOf(b); return (i < 0 ? 99 : i) - (j < 0 ? 99 : j) || a.localeCompare(b); });
   }
   function best() {
@@ -67,7 +67,7 @@
   function drawAds() {
     var cs = coins(); if (!tab || cs.indexOf(tab) < 0) tab = cs[0];
     var col = function (sd, h, sub) {
-      var list = ads.filter(function (a) { return a.coin === tab && a.side === sd; });
+      var list = ads.filter(function (a) { return a.coin === tab && a.side === sd && a.online; });   // owner: offline ads are not shown
       return '<div><h3>' + esc(f(h, { c: tab })) + ' <small>' + esc(sub) + '</small></h3>' + (list.length ? list.map(card).join("") : '<p class="none">' + esc(t[22]) + '</p>') + '</div>';
     };
     A.innerHTML = '<div class="wrap"><h2>' + esc(t[16]) + '</h2><p class="sub">' + esc(t[17]) + '</p><div class="tabs">' + chips(cs, tab, "tab") + '</div>'
