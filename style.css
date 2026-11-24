@@ -124,3 +124,32 @@ details.langs summary{font-weight:600;justify-content:flex-start;list-style:none
 .langlist a{color:var(--ivory);text-decoration:none;padding:9px 12px;border-radius:9px;font-size:15px}
 .langlist a:hover,.langlist a:focus-visible{background:rgba(201,164,92,.14)}
 .langlist a[aria-current]{color:var(--gold-hi);background:rgba(201,164,92,.1)}
+
+/* ad finder + my live ads */
+.fcard{border:1px solid var(--line);border-radius:20px;padding:26px;background:linear-gradient(180deg,rgba(236,215,164,.06),rgba(13,26,24,.5));display:grid;gap:22px;margin-top:24px}
+.fstep{display:grid;grid-template-columns:34px 1fr;gap:6px 12px;align-items:center}.fstep>b{font-size:18px}
+.fnum{width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold-hi);font-size:14px}
+.seg,.chips,.amt{grid-column:2}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg button,.chips button,.tabs button{font:inherit;color:var(--ivory);background:transparent;border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;text-align:start;font-weight:700}
+.seg button small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.seg button.on,.chips button.on,.tabs button.on{border-color:var(--gold);background:rgba(201,164,92,.14);color:var(--gold-hi)}
+.chips,.tabs{display:flex;flex-wrap:wrap;gap:8px}.chips button,.tabs button{border-radius:999px;padding:8px 16px}
+.amt{display:flex;align-items:center;border:1px solid var(--gold);border-radius:14px;max-width:320px;overflow:hidden}
+.amt input{flex:1;min-width:0;background:transparent;border:0;color:var(--ivory);font:400 26px var(--serif);padding:10px 14px}.amt span{padding:0 14px;color:var(--muted);font-weight:700}
+.fresult{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:20px}
+.fresult b{display:block;font-size:18px}.price{color:var(--gold-hi);font-family:var(--serif);font-size:20px}
+.ok{color:#7fe0a8;font-size:13px;font-weight:700}.no{color:var(--muted);font-size:13px;font-weight:700}
+.adcols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.adcols h3{margin:0 0 10px;font-size:18px}.adcols h3 small{color:var(--muted);font-weight:400;font-size:14px;margin-inline-start:6px}
+.ad{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.ad b{display:block;font:400 26px/1.1 var(--serif);color:var(--gold-hi)}.ad span{color:var(--muted);font-size:14px}.ad.off{opacity:.5}
+@media (max-width:700px){.adcols{grid-template-columns:1fr}.fcard{padding:18px}.fstep{grid-template-columns:1fr}.seg,.chips,.amt{grid-column:1}.fnum{display:none}.fresult .btn{width:100%;text-align:center}}
+
+.ad span.ok{color:#7fe0a8}
+
+.finder[hidden],.myads[hidden]{display:none}
+.none{color:var(--muted);border:1px dashed var(--line);border-radius:14px;padding:14px 16px}
+.seg button,.chips button,.tabs button{font-family:inherit}
+
+.price,.ad>div>span,.amt input{unicode-bidi:isolate;direction:ltr}html[dir=rtl] .price,html[dir=rtl] .ad>div>span{display:inline-block}

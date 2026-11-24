@@ -28,6 +28,7 @@
   }
   function load() {
     fetch(URL, { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+      try { window.dispatchEvent(new CustomEvent("rahat:stats", { detail: d })); } catch (e) {}
       if (!d || !d.ok) return;
       put("customers", d.customers != null ? fmt(d.customers) : null);
       put("trades", d.trades != null ? fmt(d.trades) : null,
