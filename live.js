@@ -17,7 +17,7 @@
     var g = sec.querySelector(".lboxes"); g.classList.toggle("four", vis.length === 7 || vis.length === 8);
     vis.forEach(function (b, i) { b.classList.toggle("wide", vis.length % 2 === 1 && i === vis.length - 1); });
   }
-  var last = 0;
+  var last = 0, first = true;
   function ago() {
     var el = sec.querySelector(".ago"); if (!last || !el) return;
     var m = Math.max(0, Math.round((Date.now() / 1000 - last) / 60));
@@ -27,7 +27,9 @@
                         : (m < 1 ? " · updated just now" : " · updated " + m + " min ago");
   }
   function load() {
-    fetch(URL, { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+    var u = URL + (first ? "?n=1&l=" + encodeURIComponent(document.documentElement.lang || "en") : "");   // first call of a page = one visit
+    first = false;
+    fetch(u, { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
       try { window.dispatchEvent(new CustomEvent("rahat:stats", { detail: d })); } catch (e) {}
       if (!d || !d.ok) return;
       put("customers", d.customers != null ? fmt(d.customers) : null);
