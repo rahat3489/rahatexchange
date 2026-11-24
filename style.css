@@ -102,3 +102,7 @@ footer .wrap{display:grid;gap:10px}footer b{font-family:var(--serif);font-weight
 .lbox b{display:block;font-size:17px;line-height:1.3;margin-bottom:4px}.lbox .d{display:block;color:var(--muted);font-size:14px;line-height:1.45}
 .upd{color:var(--muted);font-size:13px;margin-top:14px}
 @media (max-width:600px){.lboxes{grid-template-columns:1fr 1fr;gap:10px}.lbox{padding:18px 14px}}
+
+/* owner: only the number and its label in each box */
+.lbox .d{display:none}
+.lbox b{margin-bottom:0}
