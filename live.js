@@ -12,6 +12,11 @@
     b.querySelector(".n").textContent = v; b.hidden = false;
     if (sub) b.querySelector(".d").textContent = sub;
   }
+  function layout() {                 // 7 boxes: 4 + 3 on a computer; on a phone an odd last box takes the full row
+    var vis = [].filter.call(sec.querySelectorAll(".lbox"), function (b) { return !b.hidden; });
+    var g = sec.querySelector(".lboxes"); g.classList.toggle("four", vis.length === 7 || vis.length === 8);
+    vis.forEach(function (b, i) { b.classList.toggle("wide", vis.length % 2 === 1 && i === vis.length - 1); });
+  }
   var last = 0;
   function ago() {
     var el = sec.querySelector(".ago"); if (!last || !el) return;
@@ -28,9 +33,13 @@
       put("month", d.month != null ? fmt(d.month) : null);
       put("positive", d.positive != null ? d.positive + "%" : null,
           d.reviews != null ? (ar ? "من " + fmt(d.reviews) + " تقييماً للعملاء" : "from " + fmt(d.reviews) + " customer reviews") : null);
+      if (d.trades && d.customers && d.trades >= d.customers)
+        put("repeat", Math.round((d.trades - d.customers) / d.trades * 100) + "%");
+      layout();
       put("completion", d.completion === 100 ? "100%" : null);
       put("pay_min", d.pay_min != null ? String(d.pay_min) : null);
       put("release_min", d.release_min != null ? String(d.release_min) : null);
+      layout();
       sec.querySelector(".live").hidden = false;
       last = d.updated || 0; ago();
     }).catch(function () {});

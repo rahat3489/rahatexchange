@@ -106,3 +106,7 @@ footer .wrap{display:grid;gap:10px}footer b{font-family:var(--serif);font-weight
 /* owner: only the number and its label in each box */
 .lbox .d{display:none}
 .lbox b{margin-bottom:0}
+
+.lboxes.four{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.lboxes.four{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.lboxes.four{grid-template-columns:1fr 1fr}.lbox.wide{grid-column:1/-1}}
