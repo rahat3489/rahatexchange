@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://rahatexchange.com/sitemap.xml
-Disallow: /app-test/

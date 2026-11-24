@@ -153,3 +153,5 @@ details.langs summary{font-weight:600;justify-content:flex-start;list-style:none
 .seg button,.chips button,.tabs button{font-family:inherit}
 
 .price,.ad>div>span,.amt input{unicode-bidi:isolate;direction:ltr}html[dir=rtl] .price,html[dir=rtl] .ad>div>span{display:inline-block}
+
+.fresult .pick{display:block;color:var(--muted);font-size:14px;margin-top:2px}
