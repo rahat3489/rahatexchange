@@ -21,6 +21,8 @@
   function ago() {
     var el = sec.querySelector(".ago"); if (!last || !el) return;
     var m = Math.max(0, Math.round((Date.now() / 1000 - last) / 60));
+    var tn = sec.getAttribute("data-now"), ta = sec.getAttribute("data-ago");
+    if (tn && ta) { el.textContent = " · " + (m < 1 ? tn : ta.replace("{m}", m)); return; }
     el.textContent = ar ? (m < 1 ? " · تم التحديث الآن" : " · آخر تحديث قبل " + m + " دقيقة")
                         : (m < 1 ? " · updated just now" : " · updated " + m + " min ago");
   }
